@@ -1,6 +1,7 @@
 ﻿using System;
 using DataAccess;
 using Entities;
+using Entities.Concrete;
 
 namespace Console
 {
