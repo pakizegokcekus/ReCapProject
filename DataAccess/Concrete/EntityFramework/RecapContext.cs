@@ -1,15 +1,19 @@
 ﻿using DataAccess.ReCap.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.ReCap
+namespace DataAccess.Concrete.EntityFramework
 {
     public class RecapContext:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Server = (localdb)\mssqllocaldb; Database = ReCap; Trusted_Connection = true");
+                @"Server = DESKTOP-H2M0BSJ\SQLEXPRESS; Database = ReCap; Trusted_Connection = true");
         }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Car>().ToTable("Cars");
+        //}
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }

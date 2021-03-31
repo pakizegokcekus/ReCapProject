@@ -5,15 +5,18 @@ using DataAccess.ReCap;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RecapContext))]
-    partial class RecapContextModelSnapshot : ModelSnapshot
+    [Migration("20210329145300__deneme")]
+    partial class _deneme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
+#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -74,6 +77,7 @@ namespace DataAccess.Migrations
 
                     b.ToTable("Colors");
                 });
+#pragma warning restore 612, 618
         }
     }
 }

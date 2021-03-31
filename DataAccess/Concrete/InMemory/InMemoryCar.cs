@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using DataAccess.ReCap.Models;
 using Entities;
-using Entities.Concrete;
 
 namespace DataAccess
 {
