@@ -29,11 +29,30 @@ namespace Business.Concrete
             return new Result(false, "");
         }
 
-        //public IDataResult<List<Car>> GetAll()
-        //{
-        //    var list = _carDal.GetAll().ToList();
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult("Güncelleme Başarılı");
+        }
 
-        //}
+        public IResult Delete(int carId)
+        {
+            throw new NotImplementedException();
+        }
 
+        public IDataResult<Car> GetById(int carId)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(x => x.Id == carId));
+        }
+
+        public IDataResult<List<Car>> GetAll()
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
+        }
+
+        public IDataResult<List<Car>> GelAllByColorId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(x => x.ColorId == id));
+        }
     }
 }
