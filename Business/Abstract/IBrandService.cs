@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using Core.Results;
 using DataAccess.ReCap.Models;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -14,5 +15,6 @@ namespace Business.Abstract
         IDataResult<List<Brand>> GetAll();
         IDataResult<Brand> GetById(int brandId);
         IResult Delete(Brand brand);
+        
     }
 }

@@ -24,7 +24,11 @@ namespace Console
             var getAll = inMemoryCar.GetAll();
 
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(AddCar);
+            var result = carManager.GetCarDetails();
+            foreach (var r in result.Data)
+            {
+                System.Console.WriteLine(r.CarName);
+            }
         }
     }
 }

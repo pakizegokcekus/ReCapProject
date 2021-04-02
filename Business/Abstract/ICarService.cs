@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Results;
 using DataAccess.ReCap.Models;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
@@ -13,6 +14,5 @@ namespace Business.Abstract
         IResult Delete(int carId);
         IDataResult<Car> GetById(int carId);
         IDataResult<List<Car>> GetAll();
-        IDataResult<List<Car>> GelAllByColorId(int id);
     }
 }

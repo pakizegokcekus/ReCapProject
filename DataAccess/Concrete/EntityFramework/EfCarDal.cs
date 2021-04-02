@@ -27,7 +27,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarId = p.Id,
                                  CarName = p.CarName,
                                  BrandName = b.BrandName,
-                                 ColorName = c.ColorName
+                                 ColorName = c.ColorName,
+                                 DailyPrice = p.DailyPrice
                              };
                 return result.ToList();
             }
@@ -47,8 +48,29 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarId = p.Id,
                                  CarName = p.CarName,
                                  BrandName = b.BrandName,
-                                 ColorName = c.ColorName
+                                 ColorName = c.ColorName,
+                                 DailyPrice = p.DailyPrice
                              };
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDto> GetCarDetailDtos()
+        {
+            using (RecapContext context = new RecapContext())
+            {
+                var result = from p in context.Cars
+                    join c in context.Colors
+                        on p.ColorId equals c.Id
+                    join b in context.Brands on p.BrandId equals b.Id
+                    select new CarDetailDto
+                    {
+                        CarId = p.Id,
+                        CarName = p.CarName,
+                        BrandName = b.BrandName,
+                        ColorName = c.ColorName,
+                        DailyPrice = p.DailyPrice
+                    };
                 return result.ToList();
             }
         }

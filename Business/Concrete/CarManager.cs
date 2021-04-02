@@ -6,6 +6,7 @@ using Business.Abstract;
 using Core.Results;
 using DataAccess.Abstract;
 using DataAccess.ReCap.Models;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -53,6 +54,11 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GelAllByColorId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(x => x.ColorId == id));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos());
         }
     }
 }
